@@ -4,21 +4,21 @@ import java.util.Scanner;
 
 public class Main {
       public static void main(String[] args) {
-        System.out.println("Enter Any Number To Check Palindrom:\n");
+        System.out.println("Enter Any Word To Check Palindrom:\n");
         Scanner sc = new Scanner(System.in);
-        int input = sc.nextInt();
+        
+        String input = sc.next();
+        System.out.println("Length:\t"+input.length());
+        boolean isPalindrome = true;
 
-        int rem =0;
-        int rev = 0;
-        int num = input;
-
-        while (num!=0) {
-            rem = num%10;
-            num =num/10;
-             
-            rev = (rev*10)+rem;
+        for(int i = 0; i <input.length()/2;i++ ){
+            if(input.charAt(i) != input.charAt(input.length()-i-1)){
+                isPalindrome = false;
+                break;                
+            }
         }
-        if(input == rev){
+
+        if(isPalindrome){
             System.out.println(input+" is Palindrome");
         }else{
             System.out.println(input+" is not Palindrome");
